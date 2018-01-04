@@ -1,3 +1,10 @@
+# CascableCore 4.2.1
+
+### Changes
+
+- Moved `StopKit` to an external dependency.
+
+
 # CascableCore 4.2
 
 ### Licensing Changes

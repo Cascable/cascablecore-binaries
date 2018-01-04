@@ -18,7 +18,7 @@ This repository is for distributing CascableCore to our users. Want to find out 
 
 ## Adding CascableCore to your Project
 
-CascableCore is distributed as a self-contained framework bundle. On iOS, the build includes both simulator and device architectures - if you don't choose to use a dependency manager, you'll need to strip the simulator architectures from `CascableCore.framework` before you can upload your app to the App Store. See the [App Store Preparation](#app-store-preparation-ios-only) section below for details. 
+CascableCore is distributed as a framework bundle alongside its dependency `StopKit`. On iOS, the build includes both simulator and device architectures - if you don't choose to use a dependency manager, you'll need to strip the simulator architectures from `CascableCore.framework` and `StopKit.framework` before you can upload your app to the App Store. See the [App Store Preparation](#app-store-preparation-ios-only) section below for details. 
 
 ### Adding CascableCore to your Project Option 1: Carthage
 
@@ -54,19 +54,19 @@ To manually add `CascableCore` to your project, you can either download the bina
 
 ## Setting Your Build Settings
 
-Once you have `CascableCore.framework` in a sensible location in your project's structure, drag it into your Xcode project.
+Once you have `CascableCore.framework` and `StopKit.framework`them in a sensible location in your project's structure, drag it into your Xcode project.
 
-Next, navigate to your target's **General** settings and ensure `CascableCore.framework` is listed in both the **Embedded Binaries** and **Linked Frameworks and Libraries** section.
+Next, navigate to your target's **General** settings and ensure `CascableCore.framework` and `StopKit.framework` are listed in both the **Embedded Binaries** and **Linked Frameworks and Libraries** section.
 
-<img src="Documentation%20Images/setup-general.png" width="959">
+<img src="Documentation%20Images/setup-general.png" width="947">
 
 Next, navigate to **Build Settings** and set the **Enable Bitcode** setting to **No**. Due to our build process, CascableCore does not have a Bitcode slice. 
 
 Next, **only if your project only contains Objective-C**, navigate to **Build Settings** and ensure that **Always Embed Swift Standard Libraries** is set to **Yes**. If your project contains Swift code or depends on Swift libraries, there's no need to perform this step.
 
-Finally, navigate to **Build Phases** and add a new **Copy Files** build phase, with the destination set to **Frameworks**. Ensure that CascableCore is listed in this phase. 
+Finally, navigate to **Build Phases** and add a new **Copy Files** build phase, with the destination set to **Frameworks**. Ensure that `CascableCore.framework` and `StopKit.framework` are listed in this phase. 
 
-<img src="Documentation%20Images/setup-copyframeworks.png" width="1022">
+<img src="Documentation%20Images/setup-copyframeworks.png" width="932">
 
 ## App Transport Security
 
@@ -86,7 +86,7 @@ CascableCore makes no attempt to communicate with the outside world via the Inte
 
 ## App Store Preparation (iOS Only)
 
-The `CascableCore.framework` iOS binary contains both simulator and device architectures, allowing you to work both in the iOS Simulator and on iOS devices. Unfortunately, iTunes Connect will refuse to accept binaries that contain simulator architectures. 
+The `CascableCore.framework` and `StopKit.framework` iOS binaries contain both simulator and device architectures, allowing you to work both in the iOS Simulator and on iOS devices. Unfortunately, iTunes Connect will refuse to accept binaries that contain simulator architectures. 
 
 If you already have a solution for this problem for other dependencies, that solution should work with CascableCore as well. Otherwise, this build phase script will look through all of your built application's embedded frameworks and strip out architectures not being used for that build.
 
