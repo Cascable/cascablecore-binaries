@@ -1,3 +1,70 @@
+# CascableCore 5.0
+
+### New Live View API
+
+The API for working with Live View has changed for all cameras. The new API is designed to allow greater flexibility and better behaviour when processing live view image frames, particularly in situations where the camera is delivering frames faster than your image processing pipeline can deal with them. [CBC-115]
+
+The new API will provide live view frames on the queue you pass, allowing you to process frames on background queue. The supplied completion callback signals that you're ready for the next frame, and can be called from any queue — you can process the frames in the background, render them on the main queue, then call the completion handler to get the next frame.
+
+The new API also removes `CBLCameraLiveViewUpdateFrequency` and the `liveViewUpdateFrequency` property, which only had an effect on Canon and Nikon cameras. If you wish to throttle live view frames for performance reasons, you can simply defer calling a frame delivery's completion handler. This works for all cameras, and allows you to tailor the frame rate for your application.
+
+To start live view, make sure the camera has the `CBLCameraAvailableCommandCategoryRemoteShooting` command category available, then enable as so:
+
+```
+CBLCameraLiveViewFrameDelivery delivery = ^(id<CBLCameraLiveViewFrame> frame, dispatch_block_t completionHandler) {
+    // This will be called for each frame being delivered.
+    [self processAndDisplayFrame:frame];
+
+    // The completion handler *must* be called in order to get the next frame.
+    completionHandler();
+};
+
+[self.camera beginLiveViewStreamWithDelivery:delivery
+                               deliveryQueue:dispatch_get_main_queue()
+                          terminationHandler:^(CBLCameraLiveViewTerminationReason reason, NSError *error) {
+
+    // This will be called when live view ends either normally or because of an error.
+    if (reason == CBLCameraLiveViewTerminationReasonFailed) {
+        [self displayLiveViewFailedDialogWithError:error];
+    }
+}];
+```
+
+To end live view:
+
+```
+// This will cause the termination handler given to beginLiveViewStream… to be called with the termination
+// reason of CBLCameraLiveViewTerminationReasonEndedNormally.
+[self.camera endLiveViewStream];
+```
+
+### Direct Focus Manipulation
+
+Added `driveFocusByAmount:inDirection:completionCallback:` to `id <CBLCamera>`. Requires the `CBLCameraDirectFocusManipulationFunctionality` functionality flag, which is currently only available on Canon and Nikon cameras due to protocol limitations on the other manufacturers. [CBC-136]
+
+Using `driveFocusByAmount:inDirection:completionCallback:` allows you to move the focus point of the connected lens towards the camera or towards infinity by a small, medium, or large amount. This API requires that live view is active, and that the camera's focus mode is NOT set to MF.
+
+When triggering the shutter after using this API, ensure you don't trigger autofocus to undo the user's work.
+
+### Power Off On Disconnect
+
+Added `disconnectWithFlags:completionCallback:callbackQueue:` to `id <CBLCamera>`. If you pass the flag `CBLDisconnectionFlagPowerOffCamera` set to `YES` and the camera supports the functionality `CBLCameraPowerOffOnDisconnectFunctionality`, the camera will power down as part of the disconnection procedure. [CBC-1]
+
+`CBLDisconnectionFlagPowerOffCamera` is currently only supported on Olympus cameras.
+
+### Other Additions
+
+ Fujifilm, Olympus, and Panasonic cameras now all support `CBLCameraHalfShutterPressFunctionality`, and you can call `engageAutoFocus:` and `disengageAutoFocus:` on them. For cameras that don't support "half press shutter" commands, `CascableCore` will fall back to using `touchAFAtPoint:callback:` with either the last point passed to `touchAFAtPoint:callback:`, or the centre of the frame. [CBC-49]
+
+If you were previously checking for `CBLCameraHalfShutterPressFunctionality` and either performing `engageAutoFocus:` or `touchAFAtPoint:callback:` depending on the result, you should now be able to remove that check and exclusively use `engageAutoFocus:`/`disengageAutoFocus:`  unless you have a particular point you wish to focus on.
+
+### Bug Fixes
+
+New instances of `id <CBLPropertyProxy>` no longer return `nil` for the `localizedDisplayValue` property for certain property identifiers on Fujifilm and Panasonic cameras. [CBC-137]
+
+Sony cameras no longer permanently set their `storageDevices` property to `nil` when encountering a timeout or other transient error when switching to `CBLCameraAvailableCommandCategoryFilesystemAccess`. Additionally, timeouts for these switches have been increased. [CBC-133]
+
+
 # CascableCore 4.2.1
 
 ### Changes
