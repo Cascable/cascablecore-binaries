@@ -1,3 +1,10 @@
+# CascableCore 5.0.1
+
+### Bug Fixes
+
+- Fixed an issue that could cause Nikon cameras to deliver `nil` frames to the live view frame delivery callback. [CBC-141]
+
+
 # CascableCore 5.0
 
 ### New Live View API
