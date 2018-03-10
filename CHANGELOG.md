@@ -1,3 +1,10 @@
+# CascableCore 5.0.2
+
+### Bug Fixes
+
+- Fixed an issue that would cause Fuji cameras to freeze when switching from `CBLCameraAvailableCommandCategoryFilesystemAccess` to `CBLCameraAvailableCommandCategoryRemoteShooting` when live view was never enabled in the previous `CBLCameraAvailableCommandCategoryRemoteShooting`  period. [CBC-144]
+
+
 # CascableCore 5.0.1
 
 ### Bug Fixes
