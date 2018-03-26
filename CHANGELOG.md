@@ -1,3 +1,26 @@
+# CascableCore 5.1
+
+### Support for Sony a7R III, a9, etc
+
+CascableCore now supports newer Sony cameras that don't support the "Smart Remote Control" on-camera app, including the a7R III, a9, etc. Unfortunately, these cameras are missing a number of properties compared to other Sony cameras and don't support access to the camera's storage. [CBC-145]
+
+
+### Support for decoding camera-generated QR codes.
+
+The new `CBLCameraQRDecoding` class contains logic for decoding the strings contained in Sony, Olympus and Panasonic QR codes. [CBL-862]
+
+
+### Bug Fixes
+
+- Improvements to `CBLCameraDiscovery` to improve reliability. [CBC-142]
+
+- Fixed an issue that could cause Shot Preview deliveries to fail on Canon cameras with multiple in-use storage slots. [CBC-146]
+
+- Fixed an issue that would cause `validSettableValuesForProperty:` to incorrectly return no valid values for `CBLPropertyIdentifierAperture` on Fuji cameras. [CBC-143]
+
+- Internal work to live view streaming in Fuji cameras to try to prevent memory corruption issues in certain conditions. [CBC-138]
+
+
 # CascableCore 5.0.2
 
 ### Bug Fixes
