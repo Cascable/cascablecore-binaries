@@ -1,3 +1,10 @@
+# CascableCore 5.1.1
+
+### Bug Fixes
+
+- Fixed an issue that could cause unbound memory usage on Fujifilm and Panasonic cameras. [CBC-150]
+
+
 # CascableCore 5.1
 
 ### Support for Sony a7R III, a9, etc
