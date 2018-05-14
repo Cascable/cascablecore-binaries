@@ -1,3 +1,14 @@
+# CascableCore 5.1.2
+
+### Additions
+
+- Added support for early 2018 Canon cameras: EOS M50, EOS T7/2000D/1500D, EOS T10/4000D/3000D, and EOS SL2/200D/Kiss X9. CR3 support for the EOS M50 will be added in a future update. [CBC-140]
+
+### Bug Fixes
+
+- Camera discovery no longer excessively logs to the console.
+
+
 # CascableCore 5.1.1
 
 ### Bug Fixes
