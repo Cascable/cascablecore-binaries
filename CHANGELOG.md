@@ -1,3 +1,40 @@
+# CascableCore 5.2
+
+### New Features
+
+Added options to live view, allowing the customisation of how live view is streamed. This manifests in two new APIs:
+
+The method `-beginLiveViewStreamWithDelivery:deliveryQueue:options:terminationHandler:` is used to pass options when starting live view. 
+
+The method `-applyLiveViewStreamOptions:` is used to change options when live view is running (where supported).
+
+The following options are currently available: 
+
+- `CBLLiveViewOptionSkipImageDecoding`: When set to `@YES`, live view frames will not decode their image data into `NSImage`/`UIImage` objects. In cases where the client doesn't need these image objects to perform live view processing, this saves a decent amount of CPU resources. The default value for this option is `@NO` (i.e., live view frames will decode their images). [CBC-162]
+
+- `CBLLiveViewOptionFavorHighFrameRate`: When set to `@YES`, CascableCore will attempt to configure live view such that it delivers smaller or lower quality images during live view in order to achieve a higher framerate. This is only supported on Nikon, some Canon, and some Sony cameras. On other cameras, this option has no effect. The default value for this option is `@NO` (i.e., live view will be in the highest quality available). [CBC-163] 
+
+### Other Additions
+
+- CascableCore can now correctly parse CR3 files as produced by new Canon cameras. This means that thumbnail and preview fetching APIs will return correct results, and `-isKnownImageType` with return `YES` for these files. [CBC-155]
+
+- Black bars should no longer appear around the image returned by the thumbnail fetching APIs for JPEG and CR2 images on Canon cameras. [CBC-155]
+
+- `CBLCameraLiveViewFrame.h` now has nullability attributes. [CBC-162]
+
+- Added `-rawImagePixelSize` to `id <CBLCameraLiveViewFrame>` objects. [CBC-162]
+
+- Added `-rawImageCropRect` to `id <CBLCameraLiveViewFrame>` objects. [CBC-162]
+
+- Added support for the newest firmware updates from Panasonic (GH-5 2.3+, etc). [CBC-160]
+
+### Bug Fixes
+
+- Fixed a bug where the valid settable values result for `CBLPropertyIdentifierAperture` would return a long list of garbage values for Panasonic cameras without a lens attached. [CBC-161]
+
+- Live view will now work correctly with EOS M50 cameras. [CBC-140]
+
+
 # CascableCore 5.1.2
 
 ### Additions
