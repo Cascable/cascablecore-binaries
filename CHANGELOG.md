@@ -1,3 +1,22 @@
+# CascableCore 5.2.1
+
+### Additions
+
+- Added support for the Fujifilm X-H1, and the new film simulation mode it has (exposed as `CBLColorToneFlatVideo`). [CBC-164]
+
+- Added support for the new Bleach Bypass colour tone (`CBLColorToneBleachBypass`) and art filter (`CBLArtFilterBleachBypass`) added to newer Olympus cameras. [CBC-140]
+
+- The Canon EOS M50 now supports the live view orientation (`CBLCameraOrientationFunctionality`) and clock update (`CBLCameraUpdateClockFunctionality`) functionalities. [CBC-166]
+
+### Bug Fixes
+
+- Fixed a bug that would cause Olympus cameras to occasionally deliver invalid live view frames if `CBLLiveViewOptionSkipImageDecoding` is set. [CBC-165]
+
+- Metadata dictionaries from CR3 images now correctly place TIFF metadata into the `kCGImagePropertyTIFFDictionary` sub-dictionary. [CBC-155] 
+
+- Calling `-endLiveViewStream:` and then `-beginLiveViewStreamWithDelivery:…` without switching modes on Fuji cameras no longer causes live view to fail. [CBL-883]
+
+
 # CascableCore 5.2
 
 ### New Features
