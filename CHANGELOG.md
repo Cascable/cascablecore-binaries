@@ -1,3 +1,20 @@
+# CascableCore 5.2.2
+
+### Additions
+
+- Sony cameras will now trigger shot preview callbacks when the shot is taken using the on-body shutter button. [CBC-168]
+
+- Added support for the Panasonic LUMIX G9. [CBC-171]
+
+### Bug Fixes
+
+- Fixed a bug that would cause Live View to fail on Canon EOS 2000D and 4000D series models. [CBC-170]
+
+- Fixed a bug that would cause Live View to fail on the Canon EOS 70D when `CBLLiveViewOptionFavorHighFrameRate` is set to `@YES`.
+
+- Fixed a bug that would cause the value of `CBLPropertyIdentifierAperture` to return odd values on some Canon models when in automatic exposure modes. An "automatic" aperture value will be returned instead. [CBC-169]
+
+
 # CascableCore 5.2.1
 
 ### Additions
