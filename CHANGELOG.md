@@ -1,3 +1,8 @@
+# CascableCore 5.2.3
+
+- Replaced an internal class, `CBLPTPIPQueue`, with a modern re-implementation. This class is the very core of all communications with PTPIP-based cameras - all Canon, Fujifilm, and Nikon models, and has been around for man years. However, it was the cause of several very rare and hard to reproduce crashes, so the decision was made to re-write it. [CBC-120, CBC-167]
+
+
 # CascableCore 5.2.2
 
 ### Additions
