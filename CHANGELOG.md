@@ -1,3 +1,20 @@
+# CascableCore 5.2.4
+
+### Changes
+
+- CascableCore is now built using Swift 4.2 (it was previously Swift 3). This should have no outwards-facing changes.
+
+- Halved the chunk delivery size when streaming images from Canon cameras. [CBC-175]
+
+### Bug Fixes
+
+- Fixed a rare crash the could occur in the Olympus subsystem. [CBC-157]
+
+- Fixed a crash that occurred when encountering a damaged failsystem item on Canon cameras. [CBC-174]
+
+- Fixed a crash that occured when starting live view on a Sony camera that claims to support live view sizing but provides no sizes. [CBC-158]
+
+
 # CascableCore 5.2.3
 
 - Replaced an internal class, `CBLPTPIPQueue`, with a modern re-implementation. This class is the very core of all communications with PTPIP-based cameras - all Canon, Fujifilm, and Nikon models, and has been around for man years. However, it was the cause of several very rare and hard to reproduce crashes, so the decision was made to re-write it. [CBC-120, CBC-167]
