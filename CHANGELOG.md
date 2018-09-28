@@ -1,3 +1,10 @@
+# CascableCore 5.2.5
+
+### Bug Fixes
+
+- Fixed a crash that could occur when encountering Fuji cameras that aren't yet officially supported. [CBC-178]
+
+
 # CascableCore 5.2.4
 
 ### Changes
