@@ -1,3 +1,18 @@
+# CascableCore 5.2.6
+
+### Additions
+
+- Added support for the Canon EOS R. [CBC-179]
+
+- Added the following new `CBLAFSystem` values: `CBLAFSystemZone`, `CBLAFSystemCanonExpandPlus`, `CBLAFSystemCanonExpandAround`, `CBLAFSystemCanonLargeZoneHorizontal`, and `CBLAFSystemCanonLargeZoneVertical`.
+
+- Added the following new `CBLAutoExposureMode` value: `CBLAutoExposureModeCanonFlexiblePriorityAuto`.
+
+### Bug Fixes
+
+- Fixed a bug that would cause observers for valid settable values (i.e., those added with `observeValidSettableValuesForProperty:withBlock:`) to not fire for Canon cameras. [CBC-180]
+
+
 # CascableCore 5.2.5
 
 ### Bug Fixes
