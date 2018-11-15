@@ -1,3 +1,10 @@
+# CascableCore 5.2.7
+
+### Additions
+
+- Added support for the Fuji X-T3. [CBC-181]
+
+
 # CascableCore 5.2.6
 
 ### Additions
