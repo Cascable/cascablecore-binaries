@@ -1,3 +1,12 @@
+# CascableCore 5.2.8
+
+### Bug Fixes
+
+- Fixed an issue that would cause client-initiated shots to not deliver shot preview callbacks on Sony cameras when the shutter speed was slower than around 10 seconds. [CBC-186]
+
+- Fixed an issue that would cause EOS Rebel (i.e., cameras not sold in the EU) cameras to behave incorrectly regarding live view. [CBC-189]
+
+
 # CascableCore 5.2.7
 
 ### Additions
