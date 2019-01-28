@@ -1,3 +1,46 @@
+# CascableCore 6.0
+
+### New Features
+
+Added support for WiFi-enabled Canon PowerShot and IXUS/ELPH cameras [CBC-184] , which come in two flavours:
+
+- "Modern" PowerShot cameras (G7X II and newer, SX70 HS and newer, SX730 HS and newer) share the same platform as EOS M cameras and other than not providing focus maniuplation or other odd things, they are fully featured.
+    
+- "Legacy" PowerShot cameras (everything older) and IXUS/ELPH cameras have their own platform which is a lot more limited. In particular:
+    - Some PowerShot cameras don't support remote shooting at *all*, and only allow filesystem access.
+    - No RAW images.
+    - No simultaneous access to remote control and storage - you must switch modes. 
+    - Very limited control - no focus points, no half-press of the shutter, and a very small number of changeable settings (no exposure settings can be changed).
+    
+CascableCore does not directly expose which platform the camera is running. Instead, use APIs such as `-supportsFunctionality:`, `-supportsCommandCategories:` and so on as with other cameras. 
+
+### Other Changes
+
+- Some Canon cameras (notably EOS M, PowerShot and low-end cameras such as the 1300D) will see increased live view performance.
+
+- More Canon cameras (notably EOS 750D series, EOS 800D series, EOS R) support `CBLLiveViewOptionFavorHighFrameRate`. [CBC-191]
+
+- Calling `engageShutter:` on Canon cameras without first calling `engageAutofocus:` will cause photos to be taken without first triggering autofocus. [CBL-935]
+
+### API Changes
+
+- The values of the `CBLCameraSupportedFunctionality` enum have been renamed to correctly match modern naming guidelines.
+
+- Added `CBLCameraSupportedFunctionalityExposureControl` to the `CBLCameraSupportedFunctionality` enum. Several PowerShot cameras only provide live view and shot taking when remote controlling - no exposure settings can be changed. Those cameras won't provide `CBLCameraSupportedFunctionalityExposureControl`, while the rest will.
+
+- Added `CBLCameraSupportedFunctionalityShotPreview` to the `CBLCameraSupportedFunctionality` enum. Only cameras that support this flag will trigger shot preview callbacks.
+
+- Added the `requestInProgress` to `id <CBLCameraShotPreviewDelivery>`. If a shot preview is being loaded, this property will return `YES`.
+
+- Added `+dateFromExifDateString:` to `CBLExifHelpers`.
+
+- Added `+cropMetadatalessThumbnail:basedOnMetadata:` and `+cropMetadatalessThumbnail:toPreRotationRatio:` to `CBLImageManipulationHelpers`.
+
+- Added `+metadataInJPEGHeader:` to `CBLRAWImageDescription`.
+
+- Removed `CBLCameraLCDEVFFunctionality` and `CBLCameraSmartPhoneEVFFunctionality`, since they were internal flags only used by the Canon subsystem.
+
+
 # CascableCore 5.2.8
 
 ### Bug Fixes

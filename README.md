@@ -24,7 +24,7 @@ CascableCore is distributed as a framework bundle alongside its dependency `Stop
 
 CascableCore supports [Carthage](https://github.com/Carthage/Carthage). Simply add a line similar to the following to your `Cartfile`:
 
-`github "cascable/cascablecore-binaries" ~> 5.0`
+`github "cascable/cascablecore-binaries" ~> 6.0`
 
 ### Adding CascableCore to your Project Option 2: CocoaPods
 
@@ -34,7 +34,7 @@ For iOS apps, include the following in your `Podfile`:
 
 ```
 target 'MyApp' do
-  pod 'CascableCore/iOS', '~> 5.0'
+  pod 'CascableCore/iOS', '~> 6.0'
 end
 ```
 
@@ -42,7 +42,7 @@ For Mac apps, include the following in your `Podfile`:
 
 ```
 target 'MyApp' do
-  pod 'CascableCore/Mac', '~> 5.0'
+  pod 'CascableCore/Mac', '~> 6.0'
 end
 ```
 
