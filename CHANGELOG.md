@@ -1,3 +1,12 @@
+# CascableCore 6.0.1
+
+### Bug Fixes
+
+- Fixed a crash that could occur when connecting to Fujifilm cameras. [CBC-192]
+
+- Fixed live view for the Canon EOS 70D failing when `CBLLiveViewOptionFavorHighFrameRate` is specified. [CBC-193]
+
+
 # CascableCore 6.0
 
 ### New Features
