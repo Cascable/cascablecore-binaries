@@ -1,3 +1,16 @@
+# CascableCore 6.0.2
+
+### Bug Fixes
+
+- Fixed certain Canon cameras powering down due to inactivity when live view is inactive and the camera isn't being used. [CBC-194]
+
+- Fixed a regression in 6.0.0 that would cause `engageFocus:` to not engage focus on Canon cameras set to back-button focusing, and would cause the shutter not to be released correctly on lower-end Canon cameras when performing bulb exposures. [CBC-195]
+
+- Fixed a rare crash when parsing event packets from Canon cameras. [CBC-196]
+
+- Fixed a crash when disconnecting from a PowerShot, IXUS or ELPH camera with a `nil` callback. [CBC-197]
+
+
 # CascableCore 6.0.1
 
 ### Bug Fixes
