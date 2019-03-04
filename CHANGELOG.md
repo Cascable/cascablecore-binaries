@@ -1,3 +1,29 @@
+# CascableCore 6.1
+
+### New Features
+
+Added support for the Nikon Z series of cameras (the Z6 and Z7) in "Connect to Smartphone" mode.
+
+API ramifications are as follows:
+
+- Added `CBLDriveModeNikonHighSpeedExtendedContinuousShooting` to the `CBLDriveMode` enum.
+- Added `CBLWhiteBalanceAutomaticNaturalLight` to the `CBLWhiteBalance` enum.
+- Added `CBLImageQualityNikonJPEGFineHighQuality`, `CBLImageQualityNikonJPEGNormalHighQuality`, `CBLImageQualityNikonJPEGBasicHighQuality`, and `CBLImageQualityTIFF` to the `CBLImageQuality` enum.
+- Added `CBLAutoExposureModeNikonUser3` to the `CBLAutoExposureMode` enum.
+
+### Other New Features
+
+- Significantly reduced the time it takes to connect to Nikon cameras. [CBC-123]
+
+### Bug Fixes
+
+- Image quality settings are now correctly represented on all Nikon cameras.
+
+- Nikon cameras in "PC Mode" are no longer incorrectly discovered as Canon cameras (connections to which would subsequently fail).
+
+- The removed support for `CBLLiveViewOptionFavorHighFrameRate` from the 7D Mark II. [CBC-200]
+
+
 # CascableCore 6.0.2
 
 ### Bug Fixes
