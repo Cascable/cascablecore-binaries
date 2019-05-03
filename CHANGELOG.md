@@ -1,3 +1,14 @@
+# CascableCore 6.1.1
+
+### Other Changes
+
+- CascableCore is now compiled with Swift 5.
+
+### Bug Fixes
+
+- New images added to the same storage card when shooting RAW+JPEG will no longer incorrectly share metadata on Canon cameras. [CBC-199]
+
+
 # CascableCore 6.1
 
 ### New Features
