@@ -1,3 +1,34 @@
+# CascableCore 6.2
+
+### New Features
+
+- Added `-fetchEXIFMetadataWithPreflightBlock:metadataDeliveryBlock:` and `-fetchEXIFMetadataWithPreflightBlock:metadataDeliveryBlock:deliveryQueue:` to `id <CBLFileSystemItem>`, allowing clients to quickly load EXIF-style metadata without having to transfer the whole image. [CBC-205]
+
+- Added `CBLStorageSlot` and the `slot` property to `id <CBLFileStorage>`. [CBC-209]
+
+- Added `fileNameHint` to `id <CBLCameraShotPreviewDelivery>`. On cameras that support it, the source image filename will be provided. [CBC-204]
+
+- Added `rating` to `id <CBLFileSystemItem>`. Canon EOS cameras will populate this value with the on-camera image rating. [CBC-206]
+
+- Verified compatibility with Nikon SnapBridge cameras that recently had their Bluetooth limit removed. This includes the D500, D5600, D7500 and D850. [CBC-212]
+
+### Bug Fixes
+
+- Fixed image previews failing to load from JPEG images stored on Olympus cameras. [CBC-208]
+
+- Renamed a internally-used third-party dependency to avoid Objective-C namespace clashing when a linked client happens to use the same dependency. [CBC-207]
+
+- Thumbnails from Nikon cameras are now rotated correctly. [CBC-213]
+
+- Improved the reliability of loading shot previews when working with a dual-slot Nikon camera that's set to put RAW and JPEG images on different cards. [CBC-146]
+
+- Fixed a bug that would cause EOS M and some low-end EOS Rebel cameras to get stuck with autofocus active if `engageShutter:` was called without first calling `engageAutoFocus:`. [CBC-210]
+
+- Fixed a bug that would cause Fujifilm cameras with a trailing hyphen in their SSID to not be discovered correctly. [CBC-202]
+
+- Fixed a crash that could occur when Panasonic LUMIX cameras delivered invalid live view frames. [CBC-215]
+
+
 # CascableCore 6.1.1
 
 ### Other Changes
