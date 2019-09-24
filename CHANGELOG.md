@@ -1,3 +1,20 @@
+# CascableCore 7.0
+
+### API Changes
+
+- The client name from `[CBLCamera -connectWithClientName:…]` methods has been removed. The client name is now registered with `CBLDiscovery`'s `clientName` property. 
+
+- `[CBLNetworkConfigurationHelper -ssidOfInterface:]` has been deprecated on iOS.
+
+- Added `CBLErrorCodeNeedsNewPairing`, which will be returned as an error code in situations where connection failures could be caused by the camera being paired to another device or app.
+
+### Bug Fixes
+
+- Fujifilm cameras can now be discovered on iOS devices running iOS 13.0 or later. [CBC-217]
+
+- Reduced the amount of logging from internal CascableCore processes.
+
+
 # CascableCore 6.2
 
 ### New Features
