@@ -1,3 +1,16 @@
+# CascableCore 7.0.1
+
+### New Features
+
+- Added support for the Canon EOS 90D. [CBC-219]
+
+### Bug Fixes
+
+- Fixed a problem that would cause clock sync to fail on Canon cameras during connection (with `CBLConnectionFlagSyncCameraClockToSystemClock` set). [CBC-220]
+
+- Fixed the CR3 parser not returning a large preview image for CR3 files from certain cameras (including the EOS RP). [CBC-216]
+
+
 # CascableCore 7.0
 
 ### API Changes
