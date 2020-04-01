@@ -1,3 +1,28 @@
+# CascableCore 8.0
+
+### New Features 
+
+- Added support for accessing images on wired cameras. This requires iOS 13.2 or macOS 10.15 or higher. [CBC-222]
+
+### API Changes
+
+- Added `CBLCameraFamilyGeneric` to `CBLCameraFamily`.
+
+- Added the `-cameraTransport` property to `id <CBLCamera>`, which can be one of two values: `CBLCameraTransportNetwork` or `CBLCameraTransportUSB`.
+
+- Added the `-operatingSystemIsNewEnoughForWiredCameras` property to `CBLCameraDiscovery`.
+
+- Added the `-catalogProgress` property to `id <CBLFileStorage>`.
+
+- `-supportedFunctionality` and related APIs will always report that a camera supports `CBLCameraSupportedFunctionalityDirectFocusManipulation` if it is able to do so, even if it currently isn't in a state to execute those commands.
+
+### Bug Fixes
+
+- Fixed a bug that could cause a crash when passing invalid data to the RAW parser.
+
+- Timestamps for filesystem items on Olympus cameras are no longer incorrectly parsed using the system timezone. [CBC-226]
+
+
 # CascableCore 7.0.1
 
 ### New Features
