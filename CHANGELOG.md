@@ -1,3 +1,10 @@
+# CascableCore 8.0.1
+
+### Bug Fixes
+
+- Fixed a bug that would cause CascableCore to incorrectly detect some network routers as cameras. [CORE-93]
+
+
 # CascableCore 8.0
 
 ### New Features 
