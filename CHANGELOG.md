@@ -1,3 +1,20 @@
+# CascableCore 8.0.2
+
+### New Features
+
+- Added support for newer Fujifilm cameras, including the X-T4 and X100V. [CORE-100]
+
+- Added support for the Canon EOS 250D. [CORE-142]
+
+### Other Changes
+
+- Higher resolutions are used for live view on Nikon cameras that support it. Previously, all Nikon cameras streamed an image of 320x240 pixels when `CBLLiveViewOptionFavorHighFrameRate` was set to `YES`, otherwise 640x480 pixels. With this update, newer cameras will stream sizes of 640x480 pixels and 1024x768 pixels respectively. [CORE-103]
+
+### Bug Fixes
+
+- Cancelling pairing requests from Canon cameas after pairing has completed is now correctly ignored. [CORE-122]
+
+
 # CascableCore 8.0.1
 
 ### Bug Fixes
