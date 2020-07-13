@@ -1,3 +1,26 @@
+# CascableCore 9.0
+
+### New Features
+
+- Nikon and Canon cameras can now be operated with full remote control functionality over USB on macOS. [CORE-104]
+
+### Bug Fixes
+
+- Fixed a bug that could cause the connection process to hang on some Canon models with no SD card inserted.
+
+- On Canon models, fixed a bug that would cause the live view termination handler to not be called when live view was terminated by the camera, due to low battery or other circumstances. [CORE-143]
+
+- Fixed a number of bugs that could cause crashes when attempting to connect to unsupported devices. [CORE-148]
+
+- CascableCore will no longer attempt to connect to iOS devices connected via USB on the Mac.
+
+- USB-connected cameras should be discovered more quickly.
+
+- Canon cameras should no longer power down after a period of time if connections are left open without photos being taken. [CORE-154]
+
+- Calling `touchAFAtPoint:completionCallback:` on older Canon models of camera will now correctly engage autofocus, rather than just moving the focus point. [CORE-160]
+
+
 # CascableCore 8.0.2
 
 ### New Features
