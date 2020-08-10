@@ -1,3 +1,24 @@
+# CascableCore 9.1
+
+### New Features
+
+- Added support for the Olympus E-M1 Mark III in "Device Connection mode". [CORE-49]
+
+### Other Changes
+
+- As part of the work for the Olympus E-M1 Mark III, several improvements were made to the Olympus subsystem. This may change behaviour for existing Olympus models:
+    
+    - If provided by the camera, the reported camera serial number will now be the "real" serial number rather than a different unique ID.
+    
+    - If supported by the camera, Olympus cameras can now support `CBLCameraSupportedFunctionalityFileDeletion`, and files can be deleted.
+    
+    - If supported by the camera, multiple storage slots are now fully supported.
+
+### Bug Fixes
+
+- Fixed failure to connect to USB-connected cameras on iOS 14 betas.
+
+
 # CascableCore 9.0
 
 ### New Features
