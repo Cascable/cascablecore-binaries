@@ -1,3 +1,38 @@
+# CascableCore 9.2
+
+### New Features
+
+- Added native support for Apple Silicon Macs. [CORE-198]
+
+- Added support for the Canon EOS 850D/T8i and the EOS M50 Mark II. [CORE-192]
+
+- Added support for the Canon EOS R5 and R6 [CORE-182]: 
+
+    - Added `CBLDriveModeCanonHighSpeedPlusContinuousShooting` to `CBLDriveMode`.
+    
+    - Added support for HEIF images when working with files on a Canon cameras, and on all cameras connected via USB. 
+    
+      **Note:** Canon cameras use the extension `.HIF` for HEIF images, which isn't recognised by macOS or iOS as a valid extension
+      for these files — it should be `.heic`. CascableCore currently exposes these files as-is.
+      
+      **Note:** Previewing HEIF images either via `-fetchPreviewWithPreflightBlock:…` or a shot preview callback can take longer
+      than expected for the file size due to the additional processing time required to render HEIF images.
+    
+- Canon cameras can now be operated with full remote control functionality over USB on iOS 14.2 and higher. [CORE-188]
+    
+- Added the following APIs to `CBLCameraDiscovery`:
+
+    - `-hasAuthorizationToDiscoverWiredCameras` allows clients to know if camera discovery is likely to be able to see connected wired cameras.
+
+    - `-attemptToObtainWiredCameraAuthorization:` allows clients to prompt for the correct authorisation for the current OS version.
+    
+    - `discoveryMode`, a property allowing the client to choose whether to search for network cameras, USB cameras, or both. [CORE-204]
+
+### Bug Fixes
+
+- Improves camera detection on macOS, fixing problems that could cause cameras to be incorrectly detected, or not detected at all. [CORE-205]
+
+
 # CascableCore 9.1
 
 ### New Features
