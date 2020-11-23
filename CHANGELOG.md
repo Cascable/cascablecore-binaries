@@ -1,3 +1,10 @@
+# CascableCore 9.2.1
+
+### Bug Fixes
+
+- Fixed a problem in which the connection completion callback would not be called in some circumstances for Canon and Nikon cameras. [CORE-213]
+
+
 # CascableCore 9.2
 
 ### New Features
