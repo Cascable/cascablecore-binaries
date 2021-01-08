@@ -1,3 +1,10 @@
+# CascableCore 9.2.2
+
+### Bug Fixes
+
+- Fixed a problem in which connections would fail to the Nikon D3200 and other similar era Nikon cameras. [CORE-215]
+
+
 # CascableCore 9.2.1
 
 ### Bug Fixes
