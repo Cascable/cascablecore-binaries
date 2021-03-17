@@ -1,3 +1,10 @@
+# CascableCore 9.2.3
+
+### Changes
+
+- Improved the image size of previews from files on Nikon Z-series cameras. [CORE-288]
+
+
 # CascableCore 9.2.2
 
 ### Bug Fixes
