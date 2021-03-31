@@ -1,3 +1,14 @@
+# CascableCore 9.2.4
+
+### Changes
+
+- Improved CascableCore's behaviour around image previews involving RAW or RAW+JPEG images. In most cases, preview loading will be faster. [CORE-288]
+
+### Bug Fixes
+
+- The `completeQueue` parameter is now correctly respected when a file streaming operation fails on Nikon cameras.
+
+
 # CascableCore 9.2.3
 
 ### Changes
