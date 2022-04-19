@@ -1,5 +1,9 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Cocoapods compatible](https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat)](https://cocoapods.org)
 
+## WARNING: Repository Deprecated!
+
+This repository contains old, outdated versions of CascableCore. To use an up-to-date version, see the [CascableCore Distribution](https://github.com/Cascable/cascablecore-distribution) repo.
+
 ## CascableCore Releases
 
 This repo contains releases of the CascableCore framework. CascableCore is a framework for connecting to and working with Wi-Fi enabled cameras from Canon, Fujifilm, Nikon, Olympus, Panasonic, and Sony.
